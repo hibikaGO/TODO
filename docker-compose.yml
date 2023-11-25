@@ -10,6 +10,7 @@ services:
       - ./src:/var/www/
     depends_on:
       - php
+    platform: linux/x86_64
 
   php:
     build: ./docker/php
@@ -28,6 +29,7 @@ services:
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    platform: linux/x86_64
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -40,3 +42,4 @@ services:
       - mysql
     ports:
       - 8080:80
+    platform: linux/x86_64
